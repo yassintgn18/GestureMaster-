@@ -928,3 +928,7 @@ if __name__ == "__main__":
     window = MainWindow()
     window.show()
     sys.exit(app.exec_())
+
+
+def print_name():
+    print("yassin")
