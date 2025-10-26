@@ -1,0 +1,24 @@
+# Virtual Environment
+my_newest_ENVIRENMENT/
+env/
+venv/
+*.pyc
+__pycache__/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large files
+*.h5
+*.pkl
+*.pth
+*.weights
+
+# Logs
+*.log
