@@ -1,13 +1,11 @@
 import sys
-from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, QLabel, 
-                            QHBoxLayout, QPushButton, QStackedWidget, QFrame)
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, QLabel, QHBoxLayout, QPushButton, QStackedWidget, QFrame)
 from PyQt5.QtCore import Qt, QSize
 from PyQt5.QtGui import  QIcon, QPixmap
 import sys
 import cv2
 import numpy as np
-from PyQt5.QtWidgets import (QApplication, QWidget, QLabel, QVBoxLayout, QPushButton, 
-                            QFrame, QSizePolicy, QHBoxLayout)
+from PyQt5.QtWidgets import (QApplication, QWidget, QLabel, QVBoxLayout, QPushButton, QFrame, QSizePolicy, QHBoxLayout)
 from PyQt5.QtGui import QPixmap, QImage, QFont, QColor, QPalette
 from PyQt5.QtCore import QTimer, Qt, QSize
 from PyQt5.QtCore import Qt
@@ -15,17 +13,19 @@ from PyQt5.QtWidgets import QScrollArea, QPushButton, QVBoxLayout, QWidget, QFra
 from PyQt5.QtCore import Qt
 import subprocess
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton
+import os
+import os
+import signal
 
 
-
-class StylishButton(QPushButton):
+class StylishButton(QPushButton):       #just for the styleshet of BUTTONS
     def __init__(self, text):
         super().__init__(text)
         self.setMinimumHeight(40)
         self.setFont(QFont('Arial', 10, QFont.Bold))
         self.setStyleSheet("""
             QPushButton {
-                background-color: #4CAF50pip ;
+                background-color: #4CAF50;
                 color: white;
                 border-radius: 10px;
                 padding: 8px 16px;
@@ -38,7 +38,7 @@ class StylishButton(QPushButton):
             }
         """)
 
-class VideoFrame(QFrame):
+class VideoFrame(QFrame):    #just for the video Frame styleshet
     def __init__(self):
         super().__init__()
         self.setFrameShape(QFrame.StyledPanel)
@@ -690,7 +690,8 @@ class MainWindow(QMainWindow):
         # Placeholder for other pages (you can implement these later)
         self.PCControlPage = PCControlPage()
         self.stacked_widget.addWidget(self.PCControlPage)
-  # PC Control page placeholder
+
+        # PC Control page placeholder
         self.help_page = HelpPage()
         self.stacked_widget.addWidget(self.help_page)
         # Set up window
@@ -796,11 +797,6 @@ class MainWindow(QMainWindow):
         self.setMenuWidget(nav_bar)
         self.showMaximized()
 
-import os
-
-import os
-import signal
-
 class PCControlPage(QWidget):
     def __init__(self):
         super().__init__()
@@ -819,16 +815,15 @@ class PCControlPage(QWidget):
         base_dir = os.path.dirname(os.path.abspath(__file__))
         
         button_info = [
-            ("Mouse Control", "icons/mouse.jpeg", "Move hand to control the mouse", 
-             os.path.join(base_dir, "controls", "Soufaine_pc_control_mouse.py")),
-            ("Brightness Control", "icons/brightnes.png", "Bring fingers close/apart to adjust brightness", 
-             os.path.join(base_dir, "controls", "zBrightness_Control.py")),
-            ("Volume Control", "icons/volum.png", "Pinch/spread fingers to control volume", 
-             os.path.join(base_dir, "controls", "volome_controle.py")),
-            ("Windows + D", "icons/WINDOWS.jpg", "Wave up/down to minimize all", 
-             os.path.join(base_dir, "controls", "Soufaine_pc_control_WINDOWS_D.py")),
-            ("PowerPoint Control", "icons/power_point.jpg", "Swipe left/right to skip slides", 
-             os.path.join(base_dir, "controls", "power_point_controle.py"))
+            ("Mouse Control",       "icons/mouse.jpeg", "Move hand to control the mouse",                    os.path.join(base_dir, "controls", "Soufaine_pc_control_mouse.py")),
+
+            ("Brightness Control",  "icons/brightnes.png", "Bring fingers close/apart to adjust brightness", os.path.join(base_dir, "controls", "zBrightness_Control.py")),
+
+            ("Volume Control",      "icons/volum.png", "Pinch/spread fingers to control volume",             os.path.join(base_dir, "controls", "volome_controle.py")),
+
+            ("Windows + D",         "icons/WINDOWS.jpg", "Wave up/down to minimize all",                     os.path.join(base_dir, "controls", "Soufaine_pc_control_WINDOWS_D.py")),
+
+            ("PowerPoint Control",  "icons/power_point.jpg", "Swipe left/right to skip slides",              os.path.join(base_dir, "controls", "power_point_controle.py"))
         ]
         
         for name, icon_path, description, script in button_info:
@@ -923,12 +918,10 @@ class PCControlPage(QWidget):
         self.stop_all_scripts()
         event.accept()
 
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
     sys.exit(app.exec_())
 
-
-def print_name():
-    print("yassin")
